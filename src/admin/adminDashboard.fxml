@@ -1,16 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.adminController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.adminController">
    <children>
-      <Label layoutX="197.0" layoutY="204.0" prefHeight="46.0" prefWidth="331.0" text="Welcome to Admin Dashobard!!! ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+      <Pane prefHeight="500.0" prefWidth="39.0" style="-fx-background-color: #80d6ff;" />
+      <TabPane layoutX="39.0" layoutY="40.0" prefHeight="460.0" prefWidth="760.0" style="-fx-background-color: #c3fdff;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Student">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="466.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="studentTable" layoutX="134.0" layoutY="52.0" prefHeight="328.0" prefWidth="606.0">
+                          <columns>
+                            <TableColumn fx:id="idcolum" prefWidth="33.0" text="ID" />
+                            <TableColumn fx:id="firstnamecolum" prefWidth="122.0" text="FirstName" />
+                              <TableColumn fx:id="lastnamecolum" prefWidth="137.0" text="Last name" />
+                              <TableColumn fx:id="emailcolum" minWidth="0.0" prefWidth="123.0" text="Email" />
+                              <TableColumn fx:id="dobcolum" prefWidth="277.0" text="Date of Birth" />
+                          </columns>
+                        </TableView>
+                        <JFXButton fx:id="btnLoad" layoutX="628.0" layoutY="14.0" onAction="#loadStudentData" style="-fx-background-color: #90cc00;" text="Load Data">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField fx:id="searchTxt" layoutX="134.0" layoutY="16.0" prefHeight="25.0" prefWidth="244.0" promptText="Search..." />
+                        <VBox layoutX="9.0" layoutY="52.0" prefHeight="200.0" prefWidth="123.0">
+                           <children>
+                              <JFXTextField fx:id="txtID" promptText="ID">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtFirstName" promptText="First Name">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtLastName" promptText="Last Name">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="txtEmail" promptText="Email">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </JFXTextField>
+                              <JFXDatePicker fx:id="txtDOB">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </JFXDatePicker>
+                           </children>
+                        </VBox>
+                        <JFXButton fx:id="btnClear" layoutX="14.0" layoutY="259.0" onAction="#clearForm" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ff8a50;" text="Clear Form">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnAdd" layoutX="11.0" layoutY="290.0" onAction="#addStudent" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: #c6ff00;" text="Add Data">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnSave" layoutX="13.0" layoutY="322.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ffff00;" text="Save">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnEdit" layoutX="158.0" layoutY="389.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #ffff00;" text="Edit">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnDelete" layoutX="290.0" layoutY="389.0" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #c30000;" text="Delete">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Help?">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #eeffff;">
+                     <children>
+                        <Label layoutX="226.0" layoutY="14.0" text="Please  contact  us  from  this  No: 075-7778888">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Pane prefHeight="40.0" prefWidth="800.0" style="-fx-background-color: #80d6ff;">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="Welcome!!!">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
